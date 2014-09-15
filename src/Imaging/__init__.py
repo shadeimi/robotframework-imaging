@@ -1,22 +1,31 @@
 
 from PIL import ImageChops, Image
-import Selenium2Library, math
+import math
+from Selenium2Library import Selenium2Library
 
 
-class Imaging():
+class Imaging(Selenium2Library):
 
     def __init__(self):
-        pass
+        super(Selenium2Library, self).__init__()
+        self.a = None
 
-    def acquire_image(self, im):
-        Selenium2Library.Selenium2Library.
-        pass
+    def capture_page_screenshot_by_selector(self, im, selector):
+        """
+        :param im: Image file
+        :param selector: CSS selector
+        :return: Boolean Value
+        """
 
-    def acquire_image_by_selector(self, im, selector):
         pass
 
     def compare(self, im1, im2, threshold):
-        """Calculate the root-mean-square difference between two images"""
+        """
+        :param im1: PIL.Image instance
+        :param im2: PIL.Image instance
+        :param threshold: Compare threshold value
+        :return: Boolean value
+        """
 
         diff = ImageChops.difference(im1, im2)
         h = diff.histogram()
