@@ -2,6 +2,7 @@ robotframework-imaging
 ======================
 
 Compare two images using the root mean squared analysis 
+
 Image analysis is a science in itself as visual perception is very complicated but sometimes it is
 possible to do things simply. The general use case seems to be look for and highlight differences.
 or this it's difficult to beat the compare suite of ImageMagick. Of course, you can roll your own
