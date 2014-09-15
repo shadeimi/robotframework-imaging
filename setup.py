@@ -18,7 +18,7 @@ setup(
     long_description=long_description,
     author='Aniello Barletta',
     author_email='aniellob@gmail.com',
-    url='https://github.com/shadeimi/robotframework-needle',
+    url='https://github.com/shadeimi/robotframework-imaging',
     license='Beerware',
     keywords='robotframework testing testautomation web css webtest',
     platforms='any',

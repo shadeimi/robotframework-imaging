@@ -1,6 +1,6 @@
 
-import PIL
-import math
+from PIL import ImageChops, Image
+import Selenium2Library, math
 
 
 class Imaging():
@@ -8,16 +8,26 @@ class Imaging():
     def __init__(self):
         pass
 
-    def acquire(self, im):
+    def acquire_image(self, im):
+        Selenium2Library.Selenium2Library.
         pass
 
-    @staticmethod
-    def compare(self, im1, im2):
+    def acquire_image_by_selector(self, im, selector):
+        pass
+
+    def compare(self, im1, im2, threshold):
         """Calculate the root-mean-square difference between two images"""
 
-        self.diff = PIL.ImageChops.difference(im1, im2)
-        self.h = self.diff.histogram()
-        self.sq = (value*((idx%256)**2) for idx, value in enumerate(self.h))
-        self.sum_of_squares = sum(self.sq)
-        self.rms = math.sqrt(self.sum_of_squares/float(im1.size[0] * im1.size[1]))
-        return self.rms
+        diff = ImageChops.difference(im1, im2)
+        h = diff.histogram()
+        sq = (value*((idx%256)**2) for idx, value in enumerate(h))
+        sum_of_squares = sum(sq)
+        rms = math.sqrt(sum_of_squares/float(im1.size[0] * im1.size[1]))
+        return rms < threshold
+
+
+if __name__ == "__main__":
+    image = Imaging()
+    a = Image.open('1.png')
+    b = Image.open('2.png')
+    print image.compare(a, b, 70)
