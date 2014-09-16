@@ -35,5 +35,5 @@ class Imaging(Selenium2Library):
 
 
 if __name__ == "__main__":
-    image = Imaging(engine="rms_engine")
+    image = Imaging(engine="perceptualdiff_engine")
     print image.compare_screenshots('1.png', '2.png', 70)

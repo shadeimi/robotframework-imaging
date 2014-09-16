@@ -22,7 +22,7 @@ class Engine(EngineBase):
 
         if process.returncode == 0:
             # No differences found
-            return
+            return True
         else:
             if os.path.exists(diff_ppm):
                 if self.perceptualdiff_output_png:
@@ -38,3 +38,4 @@ class Engine(EngineBase):
             raise AssertionError("The new screenshot '%s' did not match "
                                  "the baseline '%s'%s:\n%s"
                                  % (output_file, baseline_file, diff_file_msg, perceptualdiff_stdout))
+            return False
