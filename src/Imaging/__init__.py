@@ -19,10 +19,15 @@ class Imaging(Selenium2Library):
             print "Wrong Engine submitted"
             exit(-1)
 
+    @staticmethod
     def capture_page_screenshot_by_selector(self):
+        """ To be implemented ASAP """
         pass
 
     def compare_page_screenshot(self, file, baseline_file, threshold=0):
+        base_path = self._get_screenshot_paths()
+        file = os.path.join(base_path, file)
+        baseline_file = os.path.join(base_path, baseline_file)
         return self.engine.assertSameFiles(self.engine(), file, baseline_file, threshold)
 
 
