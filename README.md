@@ -1,9 +1,9 @@
 robotframework-imaging
 ======================
 
-Compare two images using the root mean squared analysis.
+Compare two images, asserting through a threshold value.
 
-This library is designed to make comparison using:
+This library is designed to make comparison using the following engines:
 
 1. PIL Engine
 2. RMS (Root-Mean Square Engine)
