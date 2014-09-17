@@ -1,5 +1,10 @@
 
+import os
 from Selenium2Library import Selenium2Library
+from engines.pil_engine import ImageDiff
+from contextlib import contextmanager
+from PIL import Image
+from warnings import warn
 
 
 class Imaging(Selenium2Library):
@@ -14,26 +19,13 @@ class Imaging(Selenium2Library):
             print "Wrong Engine submitted"
             exit(-1)
 
-    def capture_page_screenshot_by_selector(self, im, selector):
-        """
-        :param im: Image file
-        :param selector: CSS selector
-        :return: Boolean Value
-        """
-
+    def capture_page_screenshot_by_selector(self):
         pass
 
-    def compare_screenshots(self, im1, im2, threshold):
-        """
-        :param im1: PIL.Image instance
-        :param im2: PIL.Image instance
-        :param threshold: Compare threshold value
-        :return: Boolean value
-        """
-
-        return self.engine.assertSameFiles(self.engine(), im1, im2, threshold)
+    def compare_page_screenshot(self, file, baseline_file, threshold=0):
+        return self.engine.assertSameFiles(self.engine(), file, baseline_file, threshold)
 
 
 if __name__ == "__main__":
     image = Imaging(engine="perceptualdiff_engine")
-    print image.compare_screenshots('1.png', '2.png', 70)
+    print image.compare_page_screenshot('1.png', '2.png', 70)
