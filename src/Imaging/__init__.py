@@ -14,7 +14,6 @@ class Imaging(Selenium2Library):
             print "Wrong Engine submitted"
             exit(-1)
 
-    @staticmethod
     def capture_page_screenshot_by_selector(self):
         """ To be implemented ASAP """
         pass
