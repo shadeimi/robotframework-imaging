@@ -1,11 +1,6 @@
 
 import os
 from Selenium2Library import Selenium2Library
-from engines.pil_engine import ImageDiff
-from contextlib import contextmanager
-from PIL import Image
-from warnings import warn
-
 
 class Imaging(Selenium2Library):
 
@@ -92,7 +87,6 @@ class Imaging(Selenium2Library):
         file = os.path.join(base_path, file)
         baseline_file = os.path.join(base_path, baseline_file)
         return self.engine.assertSameFiles(self.engine(), file, baseline_file, threshold)
-
 
 
 if __name__ == "__main__":
