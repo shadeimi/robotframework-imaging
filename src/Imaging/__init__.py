@@ -1,11 +1,11 @@
 
 import os
-from Selenium2Library import Selenium2Library
+from Selenium2LibraryB import Selenium2LibraryB
 
-class Imaging(Selenium2Library):
+class Imaging(Selenium2LibraryB):
 
     def __init__(self, engine='rms_engine'):
-        super(Selenium2Library, self).__init__()
+        super(Selenium2LibraryB, self).__init__()
         try:
             self.engineName = engine
             self.module = __import__('engines.%s' % self.engineName, fromlist=['Engine'])
@@ -74,7 +74,9 @@ class Imaging(Selenium2Library):
 
     def assert_mediaquery_execution_in_page(self, url):
         javascript = """
-            window.matchMedia("mediaquery")
+            if (matchMedia('only screen and (max-width: 480px)').matches) {
+                return true;
+                }
         """
 
         self._inject_matchmedia_js()
@@ -89,5 +91,7 @@ class Imaging(Selenium2Library):
 
 
 if __name__ == "__main__":
-    image = Imaging(engine="perceptualdiff_engine")
-    print image.compare_page_screenshot('1.png', '2.png', 70)
+    s = Imaging()
+    cap = 'browserName:chrome,platformName:android,deviceName:android'
+    s.open_browser(url='http://www.giochissimo.it', remote_url='http://localhost:4723/wd/hub', desired_capabilities=cap)
+    print s.assert_mediaquery_execution_in_page(s.get_location())
