@@ -9,7 +9,7 @@ Topic :: Software Development :: Testing
 """[1:-1]
 
 from os.path import join, dirname
-long_description = open(join(dirname(__file__), 'README.rst',)).read()
+long_description = open(join(dirname(__file__), 'README.md',)).read()
 
 setup(
     name='robotframework-Imaging',
