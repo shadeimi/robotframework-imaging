@@ -25,6 +25,6 @@ setup(
     zip_safe=False,
     classifiers=CLASSIFIERS.splitlines(),
     package_dir={'': 'src'},
-    install_requires=['robotframework', 'robotframework-selenium2library', 'Pillow'],
+    install_requires=['robotframework', 'robotframework-selenium2library', 'Pillow', 'cssutils'],
     packages=['Imaging']
 )
